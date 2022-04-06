@@ -1,0 +1,10 @@
+{
+  "workbench.tree.indent": 12,
+  "vsintellicode.features.apiExamples": "enabled",
+  "editor.fontSize": 12,
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.preferredLightColorTheme": "Visual Studio Dark",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+  "workbench.preferredHighContrastColorTheme": "Visual Studio Dark"
+}
