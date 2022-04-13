@@ -42,6 +42,7 @@ Route::post('store', [FormController::class, 'store']);
 
 //route tabel rekap permintaan
 Route::get('tabel-permintaan', [FormController::class, 'tabelPermintaan'])->name('tabel-permintaan');
+Route::get('/tabel-permintaan/lihat-keterangan-gagal/{id}', [FormController::class, 'modalLihatKeterangan']);
 
 //route statistik frontend
 Route::get('statistik', [FormController::class, 'statistik'])->name('statistik');
@@ -67,6 +68,7 @@ Route::get('admin/permintaan', [AdminController::class, 'tabelPermintaan'])->nam
 Route::get('admin/permintaan/cetak/{permintaan}', [AdminController::class, 'printPDF']); //route print pdf
 Route::get('admin/permintaan/lihat/{permintaan}', [AdminController::class, 'lihatFormulir']); //route lihat formulir
 Route::put('admin/permintaan/proses/{permintaan}', [AdminController::class, 'prosesPermintaan']); //route proses permintaan
+Route::get('admin/permintaan/lihat/{permintaan}/modal-blokir', [AdminController::class, 'modalBlokirDokumen']); //route modal blokir dokumen
 Route::put('admin/permintaan/lihat/{permintaan}/blokir/{standar}', [AdminController::class, 'blokirDokumen']); //route blokir dokumen
 Route::get('admin/standar/sni', [AdminController::class, 'sniView']);
 Route::get('admin/standar/astm', [AdminController::class, 'astmView']);

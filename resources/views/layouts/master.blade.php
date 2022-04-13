@@ -202,7 +202,7 @@
 
                 <p>
                     {{ Auth::user()->name }}
-                  <small>Permintaan Standar Internal BSN</small>
+                  <small>Layanan Internal Permintaan Standar</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -1051,13 +1051,13 @@ $(document).ready(function(){
                     name : 'status',
                     render : function(data, type, row) {
                         if(row.status == 0) {
-                            return row.status = '<span class="label label-warning">Dalam Proses</span>';
+                            return row.status = '<span class="label label-warning">Menunggu</span>';
                         }
                         else if(row.status == 1) {
-                            return row.status = '<span class="label label-success">Sudah Terkirim</span>';
+                            return row.status = '<span class="label label-success">Terkirim</span>';
                         }
                         else {
-                            return row.status = '<span class="label label-danger">Gagal Proses</span>';
+                            return row.status = '<span class="label label-danger">Gagal</span>';
                         }
                     }
                 },
@@ -1106,13 +1106,13 @@ $(document).ready(function(){
                     name : 'status',
                     render : function(data, type, row) {
                         if(row.status == 0) {
-                            return row.status = '<span class="label label-warning">Dalam Proses</span>';
+                            return row.status = '<span class="label label-warning">Menunggu</span>';
                         }
                         else if(row.status == 1) {
-                            return row.status = '<span class="label label-success">Sudah Terkirim</span>';
+                            return row.status = '<span class="label label-success">Terkirim</span>';
                         }
                         else {
-                            return row.status = '<span class="label label-danger">Gagal Proses</span>';
+                            return row.status = '<span class="label label-danger">Gagal</span>';
                         }
                     }
                 },
@@ -1161,13 +1161,13 @@ $(document).ready(function(){
                     name : 'status',
                     render : function(data, type, row) {
                         if(row.status == 0) {
-                            return row.status = '<span class="label label-warning">Dalam Proses</span>';
+                            return row.status = '<span class="label label-warning">Menunggu</span>';
                         }
                         else if(row.status == 1) {
-                            return row.status = '<span class="label label-success">Sudah Terkirim</span>';
+                            return row.status = '<span class="label label-success">Terkirim</span>';
                         }
                         else {
-                            return row.status = '<span class="label label-danger">Gagal Proses</span>';
+                            return row.status = '<span class="label label-danger">Gagal</span>';
                         }
                     }
                 },
@@ -1216,13 +1216,13 @@ $(document).ready(function(){
                     name : 'status',
                     render : function(data, type, row) {
                         if(row.status == 0) {
-                            return row.status = '<span class="label label-warning">Dalam Proses</span>';
+                            return row.status = '<span class="label label-warning">Menunggu</span>';
                         }
                         else if(row.status == 1) {
-                            return row.status = '<span class="label label-success">Sudah Terkirim</span>';
+                            return row.status = '<span class="label label-success">Terkirim</span>';
                         }
                         else {
-                            return row.status = '<span class="label label-danger">Gagal Proses</span>';
+                            return row.status = '<span class="label label-danger">Gagal</span>';
                         }
                     }
                 },
@@ -1271,13 +1271,13 @@ $(document).ready(function(){
                     name : 'status',
                     render : function(data, type, row) {
                         if(row.status == 0) {
-                            return row.status = '<span class="label label-warning">Dalam Proses</span>';
+                            return row.status = '<span class="label label-warning">Menunggu</span>';
                         }
                         else if(row.status == 1) {
-                            return row.status = '<span class="label label-success">Sudah Terkirim</span>';
+                            return row.status = '<span class="label label-success">Terkirim</span>';
                         }
                         else {
-                            return row.status = '<span class="label label-danger">Gagal Proses</span>';
+                            return row.status = '<span class="label label-danger">Gagal</span>';
                         }
                     }
                 },
@@ -1326,13 +1326,13 @@ $(document).ready(function(){
                     name : 'status',
                     render : function(data, type, row) {
                         if(row.status == 0) {
-                            return row.status = '<span class="label label-warning">Dalam Proses</span>';
+                            return row.status = '<span class="label label-warning">Menunggu</span>';
                         }
                         else if(row.status == 1) {
-                            return row.status = '<span class="label label-success">Sudah Terkirim</span>';
+                            return row.status = '<span class="label label-success">Terkirim</span>';
                         }
                         else {
-                            return row.status = '<span class="label label-danger">Gagal Proses</span>';
+                            return row.status = '<span class="label label-danger">Gagal</span>';
                         }
                     }
                 },

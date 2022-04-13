@@ -180,7 +180,7 @@
                 <div class="box">
                     <div class="box-body">
                         <div class="container-fluid">
-                            <table class="table table-hover"  id="datatable-jenis-standar">
+                            <table class="table table-sm table-hover"  id="datatable-jenis-standar">
                                 <thead>
                                     <tr>
                                         <th>JENIS STANDAR</th>
@@ -233,7 +233,7 @@
             </div>
             <div class="box-body">
                 <div class="container-fluid">
-                    <table class="table table-hover"  id="datatable-unit-kerja">
+                    <table class="table table-sm table-hover"  id="datatable-unit-kerja">
                         <thead>
                             <tr>
                                 <th>Unit Kerja</th>
@@ -270,7 +270,7 @@
             </div>
             <div class="box-body">
                 <div class="container-fluid">
-                    <table class="table table-hover" id="datatable-unit-eselon-dua">
+                    <table class="table table-sm table-hover" id="datatable-unit-eselon-dua">
                         <thead>
                             <tr>
                                 <th>Unit Kerja</th>
@@ -305,7 +305,7 @@
             </div>
             <div class="box-body">
                 <div class="container-fluid">
-                    <table class="table table-hover"  id="datatable-tujuan">
+                    <table class="table table-sm table-hover"  id="datatable-tujuan">
                         <thead>
                             <tr>
                                 <th>TUJUAN PENGGUNAAN</th>

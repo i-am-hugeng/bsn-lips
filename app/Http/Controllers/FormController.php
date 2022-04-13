@@ -167,8 +167,9 @@ class FormController extends Controller
         if($request->ajax())
         {
             $data_permintaan = DB::table('data_users')
-            ->select('data_users.nama','unit_kerja.singkatan','data_users.created_at',
+            ->select('data_users.id','data_users.nama','unit_kerja.singkatan','data_users.created_at',
             DB::raw('count(standard_demands.nomor_standar) as permintaan'),'data_users.updated_at',
+            DB::raw('count(case when (standard_demands.blokir = 0 and data_users.status = 1) then standard_demands.nomor_standar else null end) as terlayani'),
             'data_users.status')->join('standard_demands','data_users.id','=','standard_demands.id_user')
             ->join('unit_kerja', 'data_users.unit_kerja','=','unit_kerja.unit')
             ->groupBy('data_users.created_at')
@@ -179,6 +180,19 @@ class FormController extends Controller
             
 
         return view('frontend.tabel-permintaan');
+    }
+
+    /* Modal Lihat Keterangan Gagal Proses Permintaan */
+    public function modalLihatKeterangan($id) {
+        $data = DB::table('data_users')
+        ->join('standard_demands','data_users.id','=','standard_demands.id_user')
+        ->select('standard_demands.nomor_standar','standard_demands.jenis_standar','standard_demands.ket_blokir')
+        ->where('data_users.id','=',$id)
+        ->get();
+
+        return response()->json([
+            'data' => $data,
+        ]);
     }
 
     /* Statistik */

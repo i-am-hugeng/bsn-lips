@@ -184,14 +184,16 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-          $('#datatable-unit-kerja').DataTable({
-              "columnDefs": [{
-                  "searchable": true,
-                  "orderable": true,
-                  "targets": 0
-              }],
-              "order": [[ 2, "desc" ]]
-          });
+        $('#datatable-unit-kerja').DataTable({
+            language: {
+                url: "/json/id.json"
+            },
+            columnDefs: [
+                {"searchable": true, "orderable": true, "targets": 0},
+                { type: "html-num", targets: [2, 3] }
+            ],
+            order: [[ 2, "desc" ]]
+        });
     });
 </script>
 @endsection
