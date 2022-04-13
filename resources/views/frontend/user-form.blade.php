@@ -108,6 +108,10 @@
                 <td style="padding-left: 0.5%">1 dari 1</td>
             </tr>
         </table>
+        <div class="d-flex justify-content-center mt-3">
+            <small class="inline font-weight-bold">Petunjuk pengisian formulir dapat dilihat pada halaman <a href="/tutorial">tutorial</a>.</small>
+        </div>
+
         <form id="main_form" action="store" class="mt-5" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             <input type="hidden" id="counter" value="0">

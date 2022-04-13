@@ -154,6 +154,9 @@
         function load_pegawai() {
             /** Fetch data permintaan **/
             $('#pegawai-dt').DataTable({
+                language: {
+                    url: "/json/id.json"
+                },
                 processing : true,
                 serverSide : true,
                 ajax : {

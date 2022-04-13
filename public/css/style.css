@@ -201,3 +201,7 @@ h3.top-range {
     font-size: 1vw;
 }
 
+.ver-all {
+    vertical-align: middle;
+    text-align: center;
+}

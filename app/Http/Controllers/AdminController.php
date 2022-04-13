@@ -86,7 +86,7 @@ class AdminController extends Controller
             ->join('standard_demands', 'data_users.id', '=', 'standard_demands.id_user')
             ->select('standard_demands.id','standard_demands.id_user','data_users.status',
             'standard_demands.nomor_standar','standard_demands.jenis_standar',
-            'standard_demands.format','standard_demands.blokir','data_users.status')
+            'standard_demands.format','standard_demands.blokir','standard_demands.ket_blokir','data_users.status')
             ->where('data_users.id','=',$id)->get();
             // $standar_list = StandardDemands::select('id','id_user','nomor_standar','jenis_standar','format','blokir')->where('id_user','=',$id)->get();
         
@@ -135,14 +135,23 @@ class AdminController extends Controller
         return response()->json($proses);
     }
 
-    public function blokirDokumen($id_user, $id){
+    public function modalBlokirDokumen($id) {
+        $data = StandardDemands::findOrFail($id);
+
+        return response()->json([
+            'data' => $data,
+        ]);
+    }
+
+    public function blokirDokumen(Request $request, $id_user, $id){
         $data = StandardDemands::findOrFail($id);
 
         $blokir_sekarang = $data->blokir;
 
         if($blokir_sekarang == 0){
             $status_blokir = StandardDemands::where('id',$id)->where('id_user',$id_user)->update([
-                'blokir' => 1
+                'blokir' => 1,
+                'ket_blokir' => $request->input('ket_blokir'),
             ]);
         };
 
@@ -161,7 +170,7 @@ class AdminController extends Controller
             }
         }
 
-        return response()->json($status_blokir);
+        return response()->json([]);
     }
 
     public function sniView(Request $request){

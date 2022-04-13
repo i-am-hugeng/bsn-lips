@@ -60,13 +60,14 @@
             <h2>Tabel Permintaan Dokumen Standar Internal</h2>
             <p class="title-footnote"><strong>*) Status permintaan bisa dilihat pada tabel berikut ini.</strong></p>
         </div>
-        <table class="table table-hover"  id="datatable">
+        <table class="table table-sm table-hover"  id="datatable">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
                     <th>Unit Kerja</th>
-                    <th>Judul</th>
+                    <th>Total Permintaan</th>
+                    <th>Total Terlayani</th>
                     <th>Tanggal Permintaan</th>
                     <th>Tanggal Proses</th>
                     <th>Status</th>
@@ -75,6 +76,30 @@
         </table>
         <div id="footer-table"></div>
     </div>
+
+    {{-- Modal Lihat Keterangan --}}
+    <div class="modal fade" id="modal-lihat-keterangan">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title text-danger">Keterangan Gagal Proses Permintaan</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="modal-lihat-keterangan-body">
+                  
+                  
+              </div>
+              <div class="modal-footer justify-content-between">
+
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+        <!-- /.modal-dialog -->
+    </div>
+    {{-- End of - Modal Blokir Dokumen --}}
 
     {{-- Footer Start --}}
 
@@ -129,6 +154,10 @@
                     name : 'permintaan',
                 },
                 {
+                    data : 'terlayani',
+                    name : 'terlayani',
+                },
+                {
                     data : 'created_at',
                     name : 'created_at',
                 },
@@ -141,18 +170,22 @@
                     name : 'status',
                     render : function(data, type, row) {
                         if(row.status == 0) {
-                            return row.status = '<span class="badge badge-warning">Dalam Proses</span>';
+                            return row.status = '<span class="badge badge-warning">Menunggu</span>';
                         }
                         else if(row.status == 1) {
-                            return row.status = '<span class="badge badge-success">Sudah Terkirim</span>';
+                            return row.status = '<span class="badge badge-success">Terkirim</span>';
                         }
                         else {
-                            return row.status = '<span class="badge badge-danger">Gagal Proses</span>';
+                            return row.status = '<button type="button" id="'+ row.id +'" class="btn badge badge-danger tombol-lihat-keterangan">Gagal</button>';
                         }
                     }
                 },
             ],
-            order : [[4, 'desc']],
+            columnDefs: [
+                { width: "5%", targets: [3,4] },
+                {className: "ver-all", target: 0}
+            ],
+            order : [[5, 'desc']],
 
             // "columnDefs": [{
             //     "searchable": true,
@@ -161,7 +194,50 @@
             // }],
             // "order": [[ 3, "desc" ]]
         });
-  });
+
+        $(document).on('click', '.tombol-lihat-keterangan', function() {
+            $('#modal-lihat-keterangan-body').html('');
+
+            var id_gagal = $(this).attr('id');
+
+            $.ajax({
+                type: "GET",
+                url: "/tabel-permintaan/lihat-keterangan-gagal/"+id_gagal,
+                success: function (response) {
+                    $('#modal-lihat-keterangan-body').append(
+                        '<table class="table table-bordered">\
+                            <thead class="bg-danger text-white">\
+                                <tr>\
+                                    <th>No</th>\
+                                    <th>Jenis Standar</th>\
+                                    <th>Nomor Standar</th>\
+                                    <th>Keterangan</th>\
+                                </tr>\
+                            </thead>\
+                            <tbody id="data-list">\
+                                \
+                            </tbody>\
+                        </table>'
+                    );
+
+                    $.each(response.data, function(key, item) {
+                        $('#data-list').append(
+                            '<tr>\
+                                <td>'+(key+1)+'</td>\
+                                <td>'+item.nomor_standar+'</td>\
+                                <td>'+item.jenis_standar+'</td>\
+                                <td>'+item.ket_blokir+'</td>\
+                            </tr>'
+                        );
+                    });
+
+                }
+            });
+
+            $('#modal-lihat-keterangan').modal('show');
+        });
+
+    });
 </script>
 @include('sweetalert::alert')
 </html>
