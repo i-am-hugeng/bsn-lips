@@ -258,8 +258,7 @@
                     '</div>'+
                     '<div class="col-sm-2">'+
                     '<select id="format['+ counter +']" class="form-control format" name="format['+ counter +']">'+
-                    '<option value="" selected>--Format--</option>'+
-                    '<option value="'+0+'">pdf</option>'+
+                    '<option value="'+0+'" selected>pdf</option>'+
                     '</select>'+
                     '</div>'+
                     '<div class="col-sm-1">'+
