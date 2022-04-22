@@ -176,7 +176,7 @@
                                     return row.format = '<span class="label label-primary">pdf</span>';
                                 }
                                 else {
-                                    return row.format = '<span class="label label-default">pdf & word</span>';
+                                    return row.format = '<span class="label label-default">word</span>';
                                 }
                             }
                     },
